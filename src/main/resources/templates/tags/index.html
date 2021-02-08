@@ -5,17 +5,14 @@
 
 <header th:replace="fragments :: header"></header>
 
-<p th:unless="${events} and ${events.size()}">No events!</p>
-
 <table class="table table-striped">
     <thead>
-        <tr>
-            <th>Event Name</th>
+    <tr>
+        <th>Name</th>
+    </tr>
     </thead>
-    <tr th:each="event : ${events}">
-        <td>
-            <a th:href="'/events/detail?eventId=' + ${event.id}" th:text="${event.name}"></a>
-        </td>
+    <tr th:each="tag : ${tags}">
+        <td><a th:text="${tag.displayName}" th:href="'/events?tagId=' + ${tag.id}"></a></td>
     </tr>
 </table>
 
